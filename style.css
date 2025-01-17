@@ -1,0 +1,351 @@
+@charset "UTF-8";
+
+/* 全体設定 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; 
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Helvetica, Arial, Verdana, sans-serif;
+  
+}
+
+.wrapper {
+  flex: 1; /* コンテンツ部分がフレックスで伸縮可能に */
+  display: flex;
+  flex-direction: column;
+}
+
+/* サイドバー */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100vh; /* 画面全体の高さ */
+  background-color: #FAFAFA;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebarLogoArea {
+  padding: 40px;
+  text-align: center;
+}
+
+.sidebarLogoArea__img {
+  width: 220px;
+  height: 80px;
+}
+
+.sidebarMainMenu {
+  padding: 0;
+}
+
+.sidebarMainMenu_item {
+  list-style-type: none;
+  margin-bottom: 5px;
+}
+
+.sidebarMainMenu_link {
+  color: black;
+  font-weight: bold;
+  display: block;
+  padding: 12px 24px;
+  text-decoration: none;
+  text-align: left;
+  background-color: #FAFAFA;
+}
+
+.sidebarMainMenu_link:hover {
+  color: orange;
+}
+
+/* メインコンテンツ */
+.contentArea {
+  flex: 1; /* コンテンツエリアを伸縮可能に */
+  margin-left: 320px; 
+  padding: 20px;
+}
+
+/* カルーセル */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin: 16px auto;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/*img parent*/
+.carousel-item {
+  min-width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-item img {
+  width:       100%;
+  height:      100%;
+  object-fit: cover;
+}
+
+/* キャプション */
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+
+/* メニュー紹介 */
+.Menu_Area {
+  position: relative;
+  z-index: 1;
+  top: 10px;
+  left: 320px; 
+  width: calc(100% - 320px);
+  background-color: beige;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.menu_png ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.menu_png ul li {
+  list-style: none;
+  box-sizing: border-box;
+  width: 20%;
+  margin: 0 0 10px;
+  background: #fff;
+  text-align: center;
+}
+
+.menu_png img {
+  width: 230px;
+  height: 270px;
+  margin: 0 10px;
+}
+
+/*メニュー*/
+
+.sectionMenu {
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0;}
+
+
+
+.sectionMenu__item {
+  list-style-type: none;
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+
+/* 画像のサイズを小さくする */
+.sectionMenu__img {
+  width: 150px; 
+  height: auto; 
+  display: block; 
+  margin: 0 auto;
+}
+
+
+/* モーダル全体のスタイル */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* モーダルの画像 */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+/* 閉じるボタン */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color:#f00;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* 店舗情報 */
+.info_Area {
+  background-color: #fff; 
+  margin: 20px 0 0 320px; 
+  padding: 100px;
+  width: calc(100% - 320px); 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+  text-align: center;
+}
+
+.info_Area h2 {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.info_Area p {
+  font-size: 2rem;
+  margin: 5px 0;
+  color: #666;
+}
+/* こだわりセクション */
+.commitment {
+  margin-left: 320px; /* サイドバーの影響を考慮 */
+  padding: 40px 20px;
+  background-color: #f7f7f7;
+}
+
+.sectionTitle {
+  font-size: 2.4rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.commitmentItems {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.commitmentItem {
+  width: calc(33% - 20px);
+  background: white;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 8px;
+}
+
+.commitmentItem__img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.commitmentItem__title {
+  font-size: 1.8rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.commitmentItem__desc {
+  font-size: 1.4rem;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.commitmentItem__link {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  color: white;
+  background-color: #007BFF;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.commitmentItem__link:hover {
+  background-color: #0056b3;
+}
+
+/* フッター */
+footer {
+  background-color: black;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer_content {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.footer_content li {
+  margin: 0 10px;
+}
+
+.footer_content a {
+  color: white;
+  text-decoration: none;
+
+}
+
+.footer_content a:hover {
+  color: orange;
+}
+
+/* フッターSNSリンクアイコンのスタイル */
+.footer_SubArea .footerSnsList__link {
+  display: flex;
+  align-items: center; 
+  color: white; 
+  text-decoration: none; 
+  font-size: 1.2rem; 
+  transition: color 0.3s ease; 
+}
+
+.footer_SubArea .footerSnsList__icon {
+  width: 24px;
+  height: 24px; 
+  margin-right: 8px; 
+  object-fit: cover; 
+}
+
+.footer_SubArea .footerSnsList__link:hover {
+  color: orange; 
+}
+
+/* 
+/* メディアクエリ（モバイル対応） 
+@media screen and (max-width: 768px) {
+  .sectionCard__item {
+    width: calc(100% - 10px); 
+  }
+  .sidebarMainMenu_link {
+    font-size: 1.2rem; 
+    padding: 12px 16px; 
+  }
+  .sidebar {
+    box-sizing: border-box; 
+  }
+} 
