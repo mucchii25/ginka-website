@@ -1,58 +1,42 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const prevButton = document.querySelector('.carousel-control-prev');
-  const nextButton = document.querySelector('.carousel-control-next');
-  const carouselInner = document.querySelector('.carousel-inner');
-  const carouselItems = document.querySelectorAll('.carousel-item');
-  const indicators = document.querySelectorAll('.carousel-indicators li');
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerMenu = document.getElementById('hamburgerMenu');
+  const navMenu = document.getElementById('navMenu');
+
+  hamburgerMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('active'); 
+    hamburgerMenu.classList.toggle('open'); // ハンバーガーアイコンのスタイルを切り替え
+  });
+});
+
+//corusel
+document.addEventListener("DOMContentLoaded", function () {
+  const carousel = document.querySelector(".carousel ul");
+  const slides = Array.from(carousel.children); // 修正: slides として定義
+  const prevButton = document.getElementById("prev");
+  const nextButton = document.getElementById("next");
 
   let currentIndex = 0;
 
-  // 画像を切り替える関数
-  function changeSlide(index) {
-    // すべての画像とインディケーターのactiveを外す
-    carouselItems.forEach(item => item.classList.remove('active'));
-    indicators.forEach(indicator => indicator.classList.remove('active'));
-    
-    // 新しいスライドにactiveクラスを追加
-    carouselItems[index].classList.add('active');
-    indicators[index].classList.add('active');
-    
-    // スライドを動かす
-    carouselInner.style.transform = `translateX(-${index * 100}%)`;
+  function updateCarousel() {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    const newTransformValue = -currentIndex * slideWidth;
+    carousel.style.transform = `translateX(${newTransformValue}px)`; // 修正: track -> carousel
   }
 
-  // 前のスライドへ
-  prevButton.addEventListener('click', function () {
-    currentIndex = (currentIndex === 0) ? carouselItems.length - 1 : currentIndex - 1;
-    changeSlide(currentIndex);
+  // Next ボタンの動作
+  nextButton.addEventListener("click", () => {
+    currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+    updateCarousel();
   });
 
-  // 次のスライドへ
-  nextButton.addEventListener('click', function () {
-    currentIndex = (currentIndex === carouselItems.length - 1) ? 0 : currentIndex + 1;
-    changeSlide(currentIndex);
+  // Prev ボタンの動作
+  prevButton.addEventListener("click", () => {
+    currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+    updateCarousel();
   });
 
-  // インディケーターをクリックした場合
-  indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', function () {
-      currentIndex = index;
-      changeSlide(currentIndex);
-    });
-  });
-
-  // 自動スライド（5秒ごとに切り替え）
-  setInterval(function () {
-    currentIndex = (currentIndex === carouselItems.length - 1) ? 0 : currentIndex + 1;
-    changeSlide(currentIndex);
-  }, 5000);
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-  var carouselHeight = document.querySelector('.carousel').offsetHeight; // カルーセルの高さを取得
-  var menuArea = document.querySelector('.Menu_Area');
-  
-  menuArea.style.top = carouselHeight + 'px'; // カルーセルの下に配置
+  // ウィンドウサイズ変更時にスライド位置を調整
+  window.addEventListener("resize", updateCarousel);
 });
 
 

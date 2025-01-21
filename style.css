@@ -7,159 +7,408 @@ html, body {
   padding: 0;
   overflow-x: hidden; 
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Helvetica, Arial, Verdana, sans-serif;
-  
+}
+
+body {
+  background-image: url('images/bagground_wood.png');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
 }
 
 .wrapper {
-  flex: 1; /* コンテンツ部分がフレックスで伸縮可能に */
+  flex: 1; 
   display: flex;
   flex-direction: column;
 }
 
-/* サイドバー */
+
+
+/* サイドバー全体 */
 .sidebar {
+  display: flex;
   position: fixed;
+  align-items: center;
+  z-index: 2;
   top: 0;
-  left: 0;
-  width: 320px;
-  height: 100vh; /* 画面全体の高さ */
-  background-color: #FAFAFA;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 120px;
+  background-color: #f5e6ca;
+  gap: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  border-bottom: 2px solid #c1a162; 
 }
 
+/* ロゴ */
 .sidebarLogoArea {
-  padding: 40px;
-  text-align: center;
+  padding: 10px 20px;
 }
 
 .sidebarLogoArea__img {
-  width: 220px;
-  height: 80px;
+  width: 50%; 
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); /* ロゴに軽い影 */
 }
 
+/* メニューリスト */
 .sidebarMainMenu {
+  display: flex;
+  flex-direction: row;
+  gap: 30px; 
+  list-style: none; 
+  margin: 0;
   padding: 0;
 }
 
-.sidebarMainMenu_item {
-  list-style-type: none;
-  margin-bottom: 5px;
-}
-
-.sidebarMainMenu_link {
-  color: black;
+/* 各メニューアイテム */
+.sidebarMainMenu li {
+  font-size: 1.2rem; 
+  font-family: 'Georgia', serif; 
   font-weight: bold;
-  display: block;
-  padding: 12px 24px;
-  text-decoration: none;
-  text-align: left;
-  background-color: #FAFAFA;
+  text-transform: uppercase; 
 }
 
-.sidebarMainMenu_link:hover {
-  color: orange;
+/* .home {
+  background-image: url(images/coffebean.png);
+} */
+
+/* リンクの\スタイル */
+.sidebarMainMenu li a {
+  color:               #5a4635; 
+  text-decoration:          none; 
+  padding:             10px 15px;
+  border:  2px solid transparent; 
+  border-radius:             5px;
+  transition:      all 0.3s ease; 
+} 
+
+/* ホバー*/
+.sidebarMainMenu li a:hover {
+  color:               #c1a162; 
+  border-color:        #c1a162; 
+  background-color:    #f5e6ca;
 }
+
+/* レスポンシブ対応 */
+/* ハンバーガーメニューのスタイル */
+.hamburger-menu {
+  display: none; 
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.hamburger-menu span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #5a4635;
+  border-radius: 5px;
+}
+
 
 /* メインコンテンツ */
-.contentArea {
-  flex: 1; /* コンテンツエリアを伸縮可能に */
-  margin-left: 320px; 
-  padding: 20px;
+.contentArea  {
+  display:                 block;
+  position:             relative;
+  top:                     150px;
+  left:                        0;
+  width:                    100%;
+  height:                   auto; 
+
 }
 
 /* カルーセル */
+
 .carousel {
   position: relative;
   width: 100%;
   height: 500px;
   margin: 16px auto;
   overflow: hidden;
-  z-index: 2;
+
 }
 
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-/*img parent*/
-.carousel-item {
-  min-width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.carousel-item img {
-  width:       100%;
+.carousel ul {
+  display:     flex;
+  list-style: 　 none;
+  overflow: 　　hidden;
+  padding:        0;
+  margin:         0;
   height:      100%;
-  object-fit: cover;
 }
 
-/* キャプション */
-.carousel-caption {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
+.carousel ul li {
+  height:     100%;
+  box-sizing: border-box;
+  min-width:  100%;
 }
+
+.carousel img {
+  width:        100%;
+  height:       100%;
+  object-fit:  cover;
+}
+
+#prev,
+#next {
+  position:               absolute;
+  top:                         50%;
+  transform:      translateY(-50%);
+  border:                     none;
+  background:  rgba(0, 0, 0, .8);
+  color:                    #fff;
+  font-size:                  24px;
+  padding:               0 8px 4px;
+  cursor:                  pointer;
+}
+#prev {
+  left: 0;
+}
+#next {
+  right: 0;
+}
+#prev:hover,
+#next:hover {
+  opacity: .8;
+}
+
 
 /* メニュー紹介 */
+
 .Menu_Area {
   position: relative;
   z-index: 1;
-  top: 10px;
-  left: 320px; 
-  width: calc(100% - 320px);
-  background-color: beige;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  top: auto;
+  left: 0; 
+  width: 100%;
+  height: auto;
+  background-color: #1e1804;
+  padding: 100px;
+  box-sizing: border-box;
 }
 
+.Menu_Area_title {
+  color: #f7f7f7;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+
 .menu_png ul {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+    position: relative;
+    left: auto;
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 80%; 
+    box-sizing: border-box;
+
 }
 
 .menu_png ul li {
-  list-style: none;
-  box-sizing: border-box;
-  width: 20%;
-  margin: 0 0 10px;
   background: #fff;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 6px;
+  overflow: hidden; 
 }
 
 .menu_png img {
-  width: 230px;
-  height: 270px;
-  margin: 0 10px;
+  width: 70%;
+  height: 80%;
+  margin-bottom: 10px;
 }
 
-/*メニュー*/
+.menu_png ul li p {
+  font-size: 1.9rem;
+  color: #333;
+  margin-top: 10px;
+}
 
-.sectionMenu {
-  list-style-type: none; 
-  padding: 0; 
-  margin: 0;}
+/* ケーキセクション全体 */
+.weekend-special {
+  padding: 50px 20px;
+  background-color: #fff8e1; 
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  margin-bottom:  50px;
+}
+
+.weekend-special__title {
+  font-size: 2.4rem;
+  color: #5a4635; 
+  margin-bottom: 30px;
+  font-family: 'Georgia', serif; 
+}
+
+/* メインケーキ表示 */
+.weekend-special__main {
+  margin-bottom: 30px;
+}
+
+.main-cake__img {
+  width: 30%; 
+  height: auto;
+  border: 10px solid #977810;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+.main-cake__name {
+  font-size: 1.8rem;
+  color: #5a4635;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* ケーキリスト */
+
+.weekend-special__list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cake-item {
+  width: 150px; 
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cake-item:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cake-item__img {
+  width: 50%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.cake-item__name {
+  font-size: 1.2rem;
+  color: #5a4635;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* 店舗情報 */
+.shop_info {
+  position: static; 
+  margin-top: 100px; 
+  margin-bottom: 100px; 
+  padding: 50px; 
+  background-color: #c3c0bd; 
+  width: 100%;
+  gap: 20px;
+  align-items: center; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+/* Googleマップのコンテナ */
+.map-container {
+  flex: 1;
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  margin: 20px auto; 
+  border-radius: 10px; 
+  overflow: hidden; 
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
 
-
-.sectionMenu__item {
-  list-style-type: none;
-  text-align: center; 
+.info_Area h2 {
+  font-size: 3rem;
+  color: #333;
   margin-bottom: 20px; 
 }
 
-/* 画像のサイズを小さくする */
-.sectionMenu__img {
-  width: 150px; 
-  height: auto; 
-  display: block; 
-  margin: 0 auto;
+.info_Area p {
+  font-size: 1.6rem; 
+  margin: 10px 0;
+  color: #666;
 }
+
+
+/*メニューページ*/
+
+.contentBox {
+  z-index: 1;
+  top: px;
+  left: 0; 
+  width: 100%;
+  height: auto;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 0;
+}
+
+/* リスト全体のスタイル */
+.sectionMenu {
+  position: relative;
+  list-style-type: none; 
+  padding: 90px; 
+  margin: 20px ;
+  background-color: #1e1804;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; 
+  max-width: 1000px;
+  border-radius: 8px; 
+  margin-bottom: 100px;
+}
+
+/* 各メニューアイテムのスタイル */
+.sectionMenu__item {
+  background-color:    #f5e6ca;
+  padding: 5px; 
+  border-radius: 8px; 
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+/* ホバー時の効果 */
+.sectionMenu__item:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+/* 画像のスタイル */
+.sectionMenu__img {
+  width: 50%; 
+  height: 120%; 
+  border-radius: 8px;
+  margin-bottom: 10px; 
+}
+
+/* キャプションのスタイル */
+.sectionMenu__subTitle {
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 10px;
+}
+
 
 
 /* モーダル全体のスタイル */
@@ -171,6 +420,7 @@ html, body {
   top: 0;
   width: 100%;
   height: 100%;
+  margin-bottom: 100px; 
   background-color: rgba(0, 0, 0, 0.8);
 }
 
@@ -178,7 +428,7 @@ html, body {
 .modal-content {
   margin: auto;
   display: block;
-  max-width: 90%;
+  max-width: 60%;
   max-height: 90%;
 }
 
@@ -201,37 +451,16 @@ html, body {
 }
 
 
-/* 店舗情報 */
-.info_Area {
-  background-color: #fff; 
-  margin: 20px 0 0 320px; 
-  padding: 100px;
-  width: calc(100% - 320px); 
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
-  text-align: center;
-}
 
-.info_Area h2 {
-  font-size: 3rem;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.info_Area p {
-  font-size: 2rem;
-  margin: 5px 0;
-  color: #666;
-}
 /* こだわりセクション */
 .commitment {
-  margin-left: 320px; /* サイドバーの影響を考慮 */
   padding: 40px 20px;
-  background-color: #f7f7f7;
+  background-color: #1e1804;
 }
 
 .sectionTitle {
-  font-size: 2.4rem;
-  color: #333;
+  font-size: 1.9rem;
+  color: #7f7f7f;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -244,18 +473,19 @@ html, body {
 }
 
 .commitmentItem {
-  width: calc(33% - 20px);
+  width: calc(25% - 20px);
   background: white;
   padding: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  border-radius: 8px;
+  margin-bottom: 100px;
 }
 
 .commitmentItem__img {
-  width: 100%;
+  width: 50%;
   height: auto;
   border-radius: 8px;
+  margin-top: auto;
   margin-bottom: 15px;
 }
 
@@ -275,21 +505,23 @@ html, body {
   display: inline-block;
   padding: 10px 20px;
   font-size: 1.4rem;
-  color: white;
-  background-color: #007BFF;
+  color: #000;
   text-decoration: none;
-  border-radius: 4px;
 }
 
 .commitmentItem__link:hover {
-  background-color: #0056b3;
+  background-color: orange;
 }
+
 
 /* フッター */
 footer {
+  position: relative;
+  clear: both;
   background-color: black;
   color: white;
   padding: 20px 0;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -298,6 +530,7 @@ footer {
   justify-content: center;
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .footer_content li {
@@ -335,17 +568,45 @@ footer {
   color: orange; 
 }
 
-/* 
-/* メディアクエリ（モバイル対応） 
+
+/*res対応 */
+/* ハンバーガーメニューの表示 */
 @media screen and (max-width: 768px) {
-  .sectionCard__item {
-    width: calc(100% - 10px); 
+  .hamburger-menu {
+    display: flex;
   }
-  .sidebarMainMenu_link {
-    font-size: 1.2rem; 
-    padding: 12px 16px; 
+
+  .sidebarMainMenu {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background-color: #f5e6ca;
+    flex-direction: column;
+    align-items: center;
+    display: none; 
   }
-  .sidebar {
-    box-sizing: border-box; 
+
+  .sidebarMainMenu.active {
+    display: flex;
   }
-} 
+
+  .sidebarMainMenu ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu_png ul {
+    grid-template-columns: repeat(2, 1fr); 
+
+
+  .store-info {
+    flex-direction: column; 
+  }
+
+  .map iframe {
+    height: 200px; 
+  }
+}
+}
+
