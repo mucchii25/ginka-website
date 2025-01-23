@@ -195,39 +195,53 @@ body {
   text-align: left;
   margin-bottom: 20px;
 }
+/* 
+#top_menu,
+.menu_png {
+  width: 980px;
+  padding: 0 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+} */
 
 
 .menu_png ul {
     position: relative;
-    left: auto;
+    margin: 0 auto;
     display: grid; 
-    grid-template-columns: repeat(5, 1fr); 
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     list-style: none;
     padding: 0;
-    margin: 0;
-    width: 80%; 
+    width: 90%; 
     box-sizing: border-box;
 
 }
 
-.menu_png ul li {
+.menu_png li {
   background: #fff;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding: 6px;
-  overflow: hidden; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .menu_png img {
-  width: 70%;
-  height: 80%;
-  margin-bottom: 10px;
+    width: 90%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
 .menu_png ul li p {
-  font-size: 1.9rem;
+  font-size: 1.2rem;
   color: #333;
   margin-top: 10px;
 }
@@ -365,26 +379,28 @@ body {
 
 /* リスト全体のスタイル */
 .sectionMenu {
-  position: relative;
-  list-style-type: none; 
-  padding: 90px; 
-  margin: 20px ;
-  background-color: #1e1804;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 30px; 
-  max-width: 1000px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  list-style-type: none; 
+  padding: 40px 300px; 
+  margin: 20px;
+  background-color: #1e1804; 
+  max-width: 1200px;
   border-radius: 8px; 
   margin-bottom: 100px;
 }
 
 /* 各メニューアイテムのスタイル */
 .sectionMenu__item {
+  font-size: 2.0rem;
   background-color:    #f5e6ca;
-  padding: 5px; 
+  width: 80%;
+  padding: 10px 20px; 
   border-radius: 8px; 
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
@@ -396,15 +412,15 @@ body {
 
 /* 画像のスタイル */
 .sectionMenu__img {
-  width: 50%; 
-  height: 120%; 
+  width: 100%; 
+  height: auto; 
   border-radius: 8px;
-  margin-bottom: 10px; 
+  margin-bottom: auto; 
 }
 
 /* キャプションのスタイル */
 .sectionMenu__subTitle {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #333;
   margin-top: 10px;
 }
@@ -419,7 +435,7 @@ body {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 120%;
   margin-bottom: 100px; 
   background-color: rgba(0, 0, 0, 0.8);
 }
@@ -521,7 +537,7 @@ footer {
   background-color: black;
   color: white;
   padding: 20px 0;
-  margin-top: 20px;
+  margin-top: auto;
   text-align: center;
 }
 
@@ -596,17 +612,28 @@ footer {
     gap: 10px;
   }
 
-  .menu_png ul {
-    grid-template-columns: repeat(2, 1fr); 
+  @media screen and (max-width: 1200px) {
+    .menu_png ul {
+        grid-template-columns: repeat(4, 1fr); /* 幅が狭い場合は4列 */
+    }
+}
 
+@media screen and (max-width: 900px) {
+    .menu_png ul {
+        grid-template-columns: repeat(3, 1fr); /* 幅がさらに狭い場合は3列 */
+    }
+}
 
-  .store-info {
-    flex-direction: column; 
-  }
+@media screen and (max-width: 600px) {
+    .menu_png ul {
+        grid-template-columns: repeat(2, 1fr); /* モバイルでは2列 */
+    }
+}
 
-  .map iframe {
-    height: 200px; 
-  }
+@media screen and (max-width: 400px) {
+    .menu_png ul {
+        grid-template-columns: 1fr; /* 最小幅では1列 */
+    }
 }
 }
 
