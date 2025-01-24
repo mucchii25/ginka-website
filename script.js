@@ -11,17 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
 //corusel
 document.addEventListener("DOMContentLoaded", function () {
   const carousel = document.querySelector(".carousel ul");
-  const slides = Array.from(carousel.children); // 修正: slides として定義
+  const slides = Array.from(carousel.children);
   const prevButton = document.getElementById("prev");
   const nextButton = document.getElementById("next");
 
   let currentIndex = 0;
-
+});
   function updateCarousel() {
     const slideWidth = slides[0].getBoundingClientRect().width;
     const newTransformValue = -currentIndex * slideWidth;
-    carousel.style.transform = `translateX(${newTransformValue}px)`; // 修正: track -> carousel
-  }
+    carousel.style.transform = `translateX(${newTransformValue}px)`; 
 
   // Next ボタンの動作
   nextButton.addEventListener("click", () => {
