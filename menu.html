@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="落ち着く喫茶店">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ティールーム銀香</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <!-- 左サイドメニュー -->
+  <header class="sidebar" >
+    <div class="sidebarLogoArea">
+      <a href="#" id="logoLink">
+        <img class="sidebarLogoArea__img" src="images/GINKA logo.png" alt="ティールーム銀香">
+      </a>
+    </div>
+
+      <!-- ハンバーガーメニューアイコン-->
+  <div class="hamburger-menu" id="hamburger-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+    <nav class="sidebarMenu">
+      <ul class="sidebarMainMenu" id="sidebarMainMenu">
+        <li><a href="index.html">ホーム</a></li>
+        <li ><a href="menu.html">メニュー</a></li>
+        <li ><a href="commitment.html">こだわり</a></li>
+        <li ><a  href="event.html">イベント</a></li>
+        <li ><a  href="shopinfo.html">店舗情報</a></li>
+        <li class="contact-info">
+          <img src="images/TEL.png" alt="TEL">
+          <span>06-6746-9834</span>
+        </li>        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <div class="contentArea">
+    <div class="contentBox">
+      <ul class="sectionMenu">
+        <li class="sectionMenu__item">
+          <img class="sectionMenu__img" src="images/morning_menu.jpg" alt="モーニング">
+          <p class="sectionMenu__subTitle">モーニング</p>
+        </li>
+        <li class="sectionMenu__item">
+          <img class="sectionMenu__img" src="images/drink_menu.jpg" >
+          <p class="sectionMenu__subTitle">ドリンク</p>
+        </li>
+        <li class="sectionMenu__item">
+          <img class="sectionMenu__img" src="images/daylunch_menu.jpg" >
+          <p class="sectionMenu__subTitle">日替わりランチ</p>
+        </li>
+        <li class="sectionMenu__item">
+          <img class="sectionMenu__img" src="images/bread_menu.jpg" alt="サンドイッチ">
+          <p class="sectionMenu__subTitle">トースト＆<br>サンドイッチ</p>
+        </li>
+
+        <li class="sectionMenu__item">
+          <img class="sectionMenu__img" src="images/sweets_menu.jpg" >
+          <p class="sectionMenu__subTitle">デザート</p>
+        </li>
+        <li class="sectionMenu__item">
+          <img class="sectionMenu__img" src="images/coffeticket.jpg" >
+          <p class="sectionMenu__subTitle">お得な<br>コーヒーチケット</p>
+        </li>
+        <li class="sectionMenu__item">
+          <img class="sectionMenu__img" src="images/weekenddesert_menu.png" >
+          <p class="sectionMenu__subTitle">週替わりデザート</p>
+        </li>
+        <li class="sectionMenu__item">
+          <img class="sectionMenu__img" src="images/kakigori_menu.jpg" >
+          <p class="sectionMenu__subTitle">《夏季限定》かき氷</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="contentArea"></div>
+
+  <!-- モーダル要素 -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <footer>
+    <div class="footer inner">
+      <ul class="footer_content">
+        <li>｜&nbsp;<a href="index.html">トップ</a>&nbsp;｜</li>
+        <li><a href="menu.html">メニュー</a>&nbsp;｜</li>
+        <li><a href="commitment.html">こだわり</a>&nbsp;｜</li>
+        <li><a href="event.html">イベント</a>&nbsp;｜</li>
+        <li><a href="shopinfo.html">店舗情報</a>&nbsp;｜</li>
+      </ul>
+      <div class="footer_SubArea">
+        <a class="footerSnsList__link" href="https://www.instagram.com/tearoom_ginka" target="_blank">
+          <img src="images/image1-2-768x768.png" alt="Instagram" class="footerSnsList__icon">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

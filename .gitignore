@@ -1,0 +1,17 @@
+# Windowsの不要なファイルをGitに追加しない
+$Recycle.Bin/
+WINDOWS.~BT/
+DumpStack.log.tmp
+OneDriveTemp/
+Program Files (x86)/
+Program Files/
+ProgramData/
+Windows/
+hiberfil.sys
+pagefile.sys
+swapfile.sys
+System Volume Information/
+Desktop.ini
+.DS_Store
+Thumbs.db
+.vscode/
