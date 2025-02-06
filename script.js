@@ -31,8 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Next ボタンの動作
   if (nextButton) {
     nextButton.addEventListener('click', () => {
-      ul.style.transform = 'translayeX(-200px';
-      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+      ul.style.transform = 'translayeX(-200px';  //画像の幅分ずらす      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
       updateCarousel();
     });
   } else {
