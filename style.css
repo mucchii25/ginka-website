@@ -59,11 +59,11 @@ footer {
 
 /* ロゴ */
 .sidebarLogoArea {
-  height: 100%;                /* サイドバーの高さに合わせる */
-  display: flex;               /* ロゴを中央に配置するためにFlexboxを使用 */
-  align-items: center;         /* 縦方向の中央揃え */
-  margin: 0 20px;              /* 左右のマージンで位置調整 */
-}
+  height: 100%;               
+  display: flex;               
+  align-items: center;         
+  margin: 0 20px;             
+ }
 
 
 .sidebarLogoArea__img {
@@ -120,7 +120,7 @@ footer {
   font-weight: bold;          
 }
 
-/* 電話アイコンのサイズ調整 */
+/* 電話アイコン */
 .contact-info img {
   width: 24px;
   height: auto;  
@@ -228,8 +228,8 @@ footer {
   .carousel {
     position: relative;
     width: 100%;
-    height: auto; /* 高さを自動調整 */
-    max-height: 80vh; /* 最大でも画面の80%の高さに */
+    height: auto; 
+    max-height: 80vh; 
     overflow: hidden;
   }
   .carousel img {
@@ -243,75 +243,119 @@ footer {
 
 /* メニュー紹介 */
 
+/* メニューセクション */
 .Menu_Area {
   position: relative;
   z-index: 1;
-  left: 0;
   background-color: #1e1804;
-  padding: 30px 30px;
+  padding: 30px 5vw;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-.Menu_Area h2{
-  font-family: 'Georgia', serif; 
+/*メニュータイトルのスタイル */
+.Menu_Area_title {
+  font-family: 'Georgia', serif;
   font-weight: 700;
   color: #f7f7f7;
   text-align: center;
   margin-bottom: 20px;
+  font-size: 2.5vw;
 }
 
-.menu_container {
+/* メニューリスト */
+.menu_png {
   display: flex;
-  position: relative;
   justify-content: center;
   align-items: center;
-  height: 100vh; 
-  background-color: #1e1804;
+  width: 100%;
+  max-width: 100vw;
+  transition: transform 0.3s ease-in-out;
 }
 
-#top_menu ul {
-  position: relative;
-  display: grid; 
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 20px; 
+/* メニューアイテム */
+.menu_png ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5vw;
   list-style: none;
   padding: 0;
   box-sizing: border-box;
+  width: 80vw;
 }
 
-
+/* 各アイテム */
 .menu_png li {
   background: #fff;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px 30px 10px 30px ; 
-  border-radius: 8px; 
+  padding: 1vw 2vw;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
 }
 
-
+/* 画像サイズ */
 .menu_png img {
-  width: 150px;
-  height: 150px; 
-  object-fit: cover; 
+  width: 12vw;
+  height: auto;
+  object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 0.5vw;
 }
 
+/* メニュー名 */
 .menu_png ul li p {
-  font-size: 16px;
-  font-family: 'Poppins', sans-serif; 
+  font-size: 1.2vw;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   color: #333;
   margin-top: auto;
 }
 
 
-/* ケーキセクション全体 */
+/* ======================== */
+/*  📌 レスポンシブ対応（全体縮小）  */
+/* ======================== */
+
+/* /* 📌 タブレットサイズ（900px以下） */
+@media screen and (max-width: 900px) {
+  .menu_png {
+    transform: scale(0.85); /* 85% に縮小 */
+  }
+  .Menu_Area h2 {
+    font-size: 3vw; 
+  }
+}
+
+
+
+/* 📌 スマホサイズ（600px以下）：さらに縮小 */
+@media screen and (max-width: 600px) {
+  .menu_png {
+    transform: scale(0.7); /* 70% に縮小 */
+  }
+  .Menu_Area h2 {
+    font-size: 3.5vw;
+  }
+}
+
+/* 📌 超小型スマホ（400px以下）：最大縮小 */
+@media screen and (max-width: 400px) {
+  .menu_png {
+    transform: scale(0.6); /* 60% に縮小 */
+  }
+  .Menu_Area h2 {
+    font-size: 4vw;
+  }
+}
+
 /* ======================== */
 /* 📌 ケーキメニューエリア */
 /* ======================== */
@@ -322,7 +366,7 @@ footer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
   margin-bottom: 50px;
-  max-width: 1200px; /* 画面サイズに合わせる */
+  max-width: 1200px; 
   margin-left: auto;
   margin-right: auto;
 }
@@ -397,10 +441,10 @@ footer {
 }
 
 /* ======================== */
-/* 📌 レスポンシブ対応 */
+/* 📌 レスポンシブ */
 /* ======================== */
 
-/* 📍 タブレットサイズ（2列表示） */
+/* タブレットサイズ（2列表示） */
 @media screen and (max-width: 900px) {
   .cake-item {
     width: calc(50% - 20px);
@@ -411,7 +455,7 @@ footer {
   }
 }
 
-/* 📍 スマホサイズ（1列表示） */
+/* スマホサイズ（1列表示） */
 @media screen and (max-width: 600px) {
   .cake-item {
     width: 100%;
@@ -428,7 +472,7 @@ footer {
   }
 }
 
-/* 📍 小型スマホ（iPhone SE など） */
+/* small*/
 @media screen and (max-width: 400px) {
   .main-cake__img {
     width: 30%;
@@ -468,11 +512,11 @@ footer {
   color: #333;
   text-align: left;
   margin: 0 auto 20px;
-  max-width: 70%; /* 中央揃えで広めの幅を取る */
+  max-width: 70%; 
 }
 
 .shopInfo__details p {
-  margin-bottom: 15px; /* 各項目にゆとりを追加 */
+  margin-bottom: 15px; 
 }
 
 .shopInfo__extra {
@@ -480,7 +524,7 @@ footer {
 }
 
 .shopInfo__wifi {
-  width: 60px; /* 少し大きくして視覚的にわかりやすく */
+  width: 60px; 
   height: auto;
   margin-top: 10px;
 }
@@ -488,8 +532,8 @@ footer {
 /* Googleマップのコンテナ */
 .map-container {
   margin: 40px auto;
-  width: 90%; /* 画面幅に応じて調整 */
-  max-width: 1200px; /* 最大幅設定 */
+  width: 90%;
+  max-width: 1200px; 
   height: 450px;
   border-radius: 8px;
   overflow: hidden;
@@ -806,7 +850,7 @@ footer {
 .shopInfoSection {
   text-align: center;
   padding: 40px 20px;
-  background-color: #1e1804; /* 背景色を統一 */
+  background-color: #1e1804; 
   color: #f7f7f7;
 }
 
@@ -826,14 +870,14 @@ footer {
   color: #f7f7f7;
   text-align: left;
   max-width: 600px;
-  margin: 0 auto; /* 中央寄せ */
+  margin: 0 auto; 
 }
 
 /* Free Wi-Fiロゴ */
 .shopInfoDetails img {
   width: 150px; /* ロゴサイズ */
   height: auto;
-  margin-top: 20px; /* テキストとの間隔 */
+  margin-top: 20px;
 }
 
 /* Googleマップ */
@@ -856,7 +900,7 @@ footer {
 /* レスポンシブ対応 */
 @media screen and (max-width: 768px) {
   .shopInfoDetails {
-    font-size: 1.2rem; /* フォントサイズを調整 */
+    font-size: 1.2rem; 
     line-height: 1.6;
   }
 
@@ -937,7 +981,7 @@ footer {
 /* レスポンシブ対応 */
 @media screen and (max-width: 768px) {
   .footer_content {
-    flex-direction: column; /* モバイルでは縦並びに */
+    flex-direction: column; /* モバイルでは縦並び*/
     gap: 10px;
   }
 
@@ -953,7 +997,7 @@ footer {
 
 /* ハンバーガーメニューの基本スタイル */
 .hamburger-menu {
-  display: none; /* デフォルトでは非表示 */
+  display: none; 
   flex-direction: column;
   justify-content: space-around;
   width: 30px;
@@ -974,7 +1018,7 @@ footer {
 /* ハンバーガーメニューの表示とナビゲーションメニューの制御 */
 @media screen and (max-width: 768px) {
   .hamburger-menu {
-    display: flex; /* 画面幅が768px以下のときに表示 */
+    display: flex; 
   }
 
   .sidebarMainMenu {
@@ -1000,28 +1044,4 @@ footer {
     padding: 10px 0;
   }
 }
-  @media screen and (max-width: 1200px) {
-    .menu_png ul {
-        grid-template-columns: repeat(4, 1fr); /* 幅が狭い場合は4列 */
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .menu_png ul {
-        grid-template-columns: repeat(3, 1fr); /* 幅がさらに狭い場合は3列 */
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .menu_png ul {
-        grid-template-columns: repeat(2, 1fr); /* モバイルでは2列 */
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .menu_png ul {
-        grid-template-columns: 1fr; /* 最小幅では1列 */
-    }
-}
-
-
+ 
