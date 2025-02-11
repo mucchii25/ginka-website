@@ -155,8 +155,6 @@ footer {
 .contentArea  {
   display:                 block;
   position:             relative;
-  top:                     150px;
-  left:                        0;
   width:                    100%;
   height:                   auto; 
 
@@ -228,22 +226,16 @@ footer {
 .Menu_Area {
   position: relative;
   z-index: 1;
-  top: auto;
-  left: 0;
   height: auto;
   background-color: #1e1804;
-  padding: 70px 30px;
+  padding: 30px 30px;
   box-sizing: border-box;
 }
 
-.Menu_Area_title {
+.Menu_Area h2{
   color: #f7f7f7;
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px;
-  position: absolute;
-  top:20px;
-  left: auto;
-
 }
 
 .menu_container {
@@ -456,6 +448,7 @@ footer {
   text-align: center;
   padding: 0;
 }
+
 
 /* リスト全体のスタイル */
 .sectionMenu {
@@ -788,7 +781,7 @@ footer {
 
   .map-container {
     max-width: 100%;
-    height: 300px; /* マップの高さを調整 */
+    height: 300px; 
   }
 }
 
@@ -875,10 +868,8 @@ footer {
     width: 24px;
     height: 24px;
   }
-}
 
 
-/*res対応 */
 /* ハンバーガーメニューの基本スタイル */
 .hamburger-menu {
   display: none; /* デフォルトでは非表示 */
@@ -896,6 +887,8 @@ footer {
   background-color: #5a4635;
   border-radius: 5px;
 }
+}
+
 
 /* ハンバーガーメニューの表示とナビゲーションメニューの制御 */
 @media screen and (max-width: 768px) {
