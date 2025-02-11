@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="./style.css">
   <!-- Bootstrap CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
 
 
 </head>
@@ -62,7 +66,7 @@
         <main class="main">
   <!---メニュー -->
   <section class="Menu_Area">
-   <h2 class="Menu_Area_title">メニュー紹介</h2>
+   <h2 class="Menu_Area_title">おすすめメニュー</h2>
    <div id="top_menu" class="menu_png">
   <ul>
     <li>
@@ -127,27 +131,32 @@
     
     </ul>
   </section>
-  <section class="weekend-special">
-    <h2 class="weekend-special__title">今週の週末限定デザート</h2>
-    <div class="weekend-special__main">
-      <img src="images/basque.png" alt="アップルバスクチーズケーキ" class="main-cake__img">
-      <p class="main-cake__name">アップルバスクチーズケーキ</p>
+  <!-- ケーキメニュー -->
+<section class="weekend-special">
+  <h2 class="weekend-special__title">今週の週末限定デザート</h2>
+  
+  <!-- メインのケーキ -->
+  <div class="weekend-special__main">
+    <img src="images/basque.png" alt="アップルバスクチーズケーキ" class="main-cake__img">
+    <p class="main-cake__name">アップルバスクチーズケーキ</p>
+  </div>
+
+  <!-- ケーキリスト -->
+  <div class="weekend-special__list">
+    <div class="cake-item">
+      <img src="images/pudding.jpg" alt="カスタードプリン" class="cake-item__img">
+      <p class="cake-item__name">カスタードプリン</p>
     </div>
-    <div class="weekend-special__list">
-      <div class="cake-item">
-        <img src="images/pudding.jpg" alt="ガトーショコラ" class="cake-item__img">
-        <p class="cake-item__name"> カスタードプリン</p>
-      </div>
-      <div class="cake-item">
-        <img src="images/cake_gato.jpg" alt="ガトーショコラ" class="cake-item__img">
-        <p class="cake-item__name">ガトーショコラ</p>
-      </div>
-      <div class="cake-item">
-        <img src="images/cake_lemon.jpg" alt="レモンのシフォンケーキ" class="cake-item__img">
-        <p class="cake-item__name">レモンのシフォンケーキ</p>
-      </div>
+    <div class="cake-item">
+      <img src="images/gato_cake.jpg" alt="ガトーショコラ" class="cake-item__img">
+      <p class="cake-item__name">ガトーショコラ</p>
     </div>
-  </section>
+    <div class="cake-item">
+      <img src="images/cake_lemon.jpg" alt="レモンのシフォンケーキ" class="cake-item__img">
+      <p class="cake-item__name">レモンのシフォンケーキ</p>
+    </div>
+  </div>
+</section>
 
 </div>
 

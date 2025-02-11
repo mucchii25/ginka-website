@@ -4,6 +4,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
   overflow-x: hidden; 
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", Helvetica, Arial, Verdana, sans-serif;
 }
@@ -49,9 +50,8 @@ footer {
   z-index: 2;
   top: 0;
   width: 100%;
-  height: 80px;
   background-color: #f5e6ca;
-  gap: 50px;
+  gap: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   border-bottom: 2px solid #c1a162; 
   padding: 0 20px;
@@ -67,11 +67,12 @@ footer {
 
 
 .sidebarLogoArea__img {
-  height: 90px;
+  height: 80px;
   width: auto;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); /* ロゴに軽い影 */
   object-fit: contain;
 }
+
 @media screen and (max-width: 768px) {
   .sidebar {
     height: 60px;              
@@ -103,6 +104,7 @@ footer {
 /* リンクのスタイル */
 .sidebarMainMenu li a {
   color:               #5a4635; 
+  font-family: 'Poppins', sans-serif;
   text-decoration:          none; 
   padding:             10px 15px;
   border:  2px solid transparent; 
@@ -140,6 +142,7 @@ footer {
   width: 30px;
   height: 25px;
   cursor: pointer;
+  margin-left: 80px;
 }
 
 .hamburger-menu span {
@@ -165,17 +168,18 @@ footer {
 .carousel {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: auto;
   margin: 16px auto;
+  max-height: 80vh;
   overflow: hidden;
 
 }
 
 .carousel ul {
   display:     flex;
-  list-style: 　 none;
-  overflow: 　　hidden;
-  padding:        0;
+  list-style:   none;
+  overflow:  hidden;
+  padding: 0;
   margin:         0;
   height:      100%;
   transition: transform.3s;
@@ -184,7 +188,7 @@ footer {
 
 
 .carousel ul li {
-  height:     100%;
+  height:     auto;
   box-sizing: border-box;
   min-width:  100%;
 }
@@ -193,6 +197,7 @@ footer {
   width:        100%;
   height:       100%;
   object-fit:  cover;
+  aspect-ratio: 16 / 9;
 }
 
 
@@ -206,7 +211,7 @@ footer {
   background:  rgba(0, 0, 0, .8);
   color:                    #fff;
   font-size:                  24px;
-  padding:               0 8px 4px;
+  padding:               10px;
   cursor:                  pointer;
 }
 #prev {
@@ -219,6 +224,21 @@ footer {
 #next:hover {
   opacity: .8;
 }
+@media screen and (max-width: 767px) {
+  .carousel {
+    position: relative;
+    width: 100%;
+    height: auto; /* 高さを自動調整 */
+    max-height: 80vh; /* 最大でも画面の80%の高さに */
+    overflow: hidden;
+  }
+  .carousel img {
+    aspect-ratio: 16 / 9; 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
 
 
 /* メニュー紹介 */
@@ -226,13 +246,16 @@ footer {
 .Menu_Area {
   position: relative;
   z-index: 1;
-  height: auto;
+  left: 0;
   background-color: #1e1804;
   padding: 30px 30px;
   box-sizing: border-box;
 }
 
+
 .Menu_Area h2{
+  font-family: 'Georgia', serif; 
+  font-weight: 700;
   color: #f7f7f7;
   text-align: center;
   margin-bottom: 20px;
@@ -247,7 +270,7 @@ footer {
   background-color: #1e1804;
 }
 
-.menu_png ul {
+#top_menu ul {
   position: relative;
   display: grid; 
   grid-template-columns: repeat(4, 1fr); 
@@ -256,6 +279,7 @@ footer {
   padding: 0;
   box-sizing: border-box;
 }
+
 
 .menu_png li {
   background: #fff;
@@ -269,6 +293,7 @@ footer {
   align-items: center;
 }
 
+
 .menu_png img {
   width: 150px;
   height: 150px; 
@@ -278,36 +303,45 @@ footer {
 }
 
 .menu_png ul li p {
-  font-size: 1,0rem; 
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif; 
+  font-weight: 500;
   color: #333;
   margin-top: auto;
 }
 
 
 /* ケーキセクション全体 */
+/* ======================== */
+/* 📌 ケーキメニューエリア */
+/* ======================== */
 .weekend-special {
   padding: 50px 20px;
-  background-color: #fff8e1; 
+  background-color: #fff8e1;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
-  margin-bottom:  50px;
+  margin-bottom: 50px;
+  max-width: 1200px; /* 画面サイズに合わせる */
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* 見出し */
 .weekend-special__title {
-  font-size: 2.4rem;
-  color: #5a4635; 
+  font-size: 2rem;
+  color: #5a4635;
   margin-bottom: 30px;
-  font-family: 'Georgia', serif; 
+  font-family: 'Georgia', serif;
 }
 
-/* メインケーキ表示 */
+/* メインケーキ */
 .weekend-special__main {
   margin-bottom: 30px;
 }
 
 .main-cake__img {
-  width: 30%; 
+  width: 40%;
   height: auto;
   border: 10px solid #977810;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -315,35 +349,39 @@ footer {
 }
 
 .main-cake__name {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #5a4635;
   font-weight: bold;
-  margin-top: 10px;
 }
 
-/* ケーキリスト */
-
+/* ======================== */
+/* 📌 ケーキリスト */
+/* ======================== */
 .weekend-special__list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .cake-item {
-  width: 150px; 
+  width: calc(33.333% - 20px); /* PC時3列 */
+  max-width: 250px;
   background-color: #fff;
-  padding: 10px;
+  padding: 15px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease-in-out;
 }
 
 .cake-item:hover {
-  transform: scale(1.05); 
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
+/* 画像サイズ調整 */
 .cake-item__img {
   width: 100%;
   height: auto;
@@ -351,12 +389,54 @@ footer {
   margin-bottom: 10px;
 }
 
+/* ケーキ名 */
 .cake-item__name {
   font-size: 1.2rem;
   color: #5a4635;
   font-weight: bold;
-  margin-top: 10px;
 }
+
+/* ======================== */
+/* 📌 レスポンシブ対応 */
+/* ======================== */
+
+/* 📍 タブレットサイズ（2列表示） */
+@media screen and (max-width: 900px) {
+  .cake-item {
+    width: calc(50% - 20px);
+  }
+
+  .main-cake__img {
+    width: 60%;
+  }
+}
+
+/* 📍 スマホサイズ（1列表示） */
+@media screen and (max-width: 600px) {
+  .cake-item {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .weekend-special__list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-cake__img {
+    width: 50%;
+  }
+}
+
+/* 📍 小型スマホ（iPhone SE など） */
+@media screen and (max-width: 400px) {
+  .main-cake__img {
+    width: 30%;
+  }
+}
+
+
+
 
 /* 店舗情報セクション */
 .shop_info {
@@ -440,9 +520,10 @@ footer {
 
 .contentBox {
   z-index: 1;
-  top: px;
-  left: 0; 
+  left: 100px; 
+  top: 0;
   width: 100%;
+  scroll-margin-top: 100px; 
   height: auto;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;

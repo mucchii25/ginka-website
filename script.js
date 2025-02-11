@@ -4,15 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger-menu');
   const sidebarMenu = document.getElementById('sidebarMainMenu');
 
+  if (hamburger && sidebarMenu) {
     hamburger.addEventListener('click', () => {
       sidebarMenu.classList.toggle('active'); // activeクラスの切り替えで表示制御
     });
-  
+  } else {
+    console.error('ハンバーガーメニューまたはサイドメニューが見つかりません！');
+  }
 
   // カルーセルの設定
   const nextButton = document.getElementById('next');
   const carousel = document.querySelector('.carousel ul');
-  const slides = Array.from(carousel?.children || []);
+
+  const slides = ul.children;   // li
+
   const prevButton = document.getElementById('prev');
 
   let currentIndex = 0;
@@ -26,19 +31,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Next ボタンの動作
+  if (nextButton) {
     nextButton.addEventListener('click', () => {
-      const slideWidth    =  slides[0].getBoundingClientRect().width;
-      ul.style.transform  =       `translateX(${-1 * slideWidth}px)`;
-    });//画像の幅分ずらす      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+      ul.style.transform = `translayeX(${ -1 * slideWidh}px`;
+       
+      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
       updateCarousel();
     });
-
+  } else {
+    console.error('Nextボタンが見つかりません！');
+  }
 
   // Prev ボタンの動作
+  if (prevButton) {
     prevButton.addEventListener('click', () => {
       currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
       updateCarousel();
     });
+  } else {
+    console.error('Prevボタンが見つかりません！');
+  }
 
   // ウィンドウサイズ変更時にスライド位置を調整
   window.addEventListener('resize', updateCarousel);
@@ -74,4 +86,4 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     console.error('モーダル要素が見つかりません！');
   }
-
+});
