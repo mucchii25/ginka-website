@@ -14,50 +14,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // カルーセルの設定
   const nextButton = document.getElementById('next');
+  const prevButton =document.getElementById('prev')
   const carousel = document.querySelector('.carousel ul');
+  const slides = ul.children;   // li index
+  let currentIndex = 0
 
-  const slides = ul.children;   // li
+  function updateButtons() {
+    prevButton.classList.remove('hidden');
+    nextButton.classList.remove('hidden');
+  
 
-  const prevButton = document.getElementById('prev');
-
-  let currentIndex = 0;
-
-  function updateCarousel() {
-    if (slides.length > 0) {
-      const slideWidth = slides[0].getBoundingClientRect().width;
-      const newTransformValue = -currentIndex * slideWidth;
-      carousel.style.transform = `translateX(${newTransformValue}px)`; 
+    if (currentIndex === 0) {
+      prevButton.classList.add('hidden');
+    }
+    if (currentIndex === slides.length - 1) {
+      nextButton.classList.add('hidden');
     }
   }
+  updateButtons();
+
+
+
+  function moveSlides() {
+    const slideWidh = slideWidh[0].getBoundingClientRect().width;
+    ul.style.transform = `translayeX(${ -1 * slideWidh * currentIndex}px`;
+
+  }
+
+ 
+  // Next ボタンの動作
+    nextButton.addEventListener('click', () => {
+      currentIndex++;//increment
+      moveSlides();
+      updateButtons();
+    });
 
   // Next ボタンの動作
-  if (nextButton) {
-    nextButton.addEventListener('click', () => {
-      ul.style.transform = `translayeX(${ -1 * slideWidh}px`;
-       
-      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
-      updateCarousel();
+     nextButton.addEventListener('click', () => {
+      currentIndex--;//decrement
+      moveSlides();
+      updateButtons();
     });
-  } else {
-    console.error('Nextボタンが見つかりません！');
-  }
+      
 
-  // Prev ボタンの動作
-  if (prevButton) {
-    prevButton.addEventListener('click', () => {
-      currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
-      updateCarousel();
-    });
-  } else {
-    console.error('Prevボタンが見つかりません！');
-  }
-
-  // ウィンドウサイズ変更時にスライド位置を調整
-  window.addEventListener('resize', updateCarousel);
-
-  // 初期表示を更新
-  updateCarousel();
-
+  
   // モーダルの設定
   const modal = document.getElementById('imageModal');
   const modalImage = document.getElementById('modalImage');
